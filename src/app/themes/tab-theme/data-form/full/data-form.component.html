@@ -1,0 +1,11 @@
+<div class="row" data-type="tool">
+  <div class="col-md-6">
+    <h6>{{ title }}</h6>
+  </div>
+  <div class="col-md-6">
+    <button-bar class="pull-right" [data]="buttonBarGroup" (buttonClick)="onButtonBar_Click($event)"></button-bar>
+  </div>
+</div>
+<div class="row" data-type="content">
+  <div class="col-md-12" data-type="dataForm"></div>
+</div>

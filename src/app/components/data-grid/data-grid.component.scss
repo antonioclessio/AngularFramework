@@ -1,0 +1,90 @@
+@import "../../common/scss/variables";
+
+div[data-type="data-grid"] {
+    height: 100%;
+
+    display: -webkit-box;
+
+    display: -ms-flexbox;
+
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+
+    > div:first-child {
+        -webkit-box-flex: calc(100% - 50px);
+            -ms-flex: calc(100% - 50px) 0 0px;
+                flex: calc(100% - 50px) 0 0;
+
+        table {
+            height: 100%;
+
+            tbody {
+                display: block;
+                overflow: auto;
+                width: 100%;
+                height: 100%;
+            }
+
+            tr {
+                display: block;
+                cursor: pointer;
+
+                th[data-sortable="true"] {
+                    cursor: pointer;
+
+                    i {
+                        margin-right: 10px;
+                    }
+                }
+
+                td, th {
+                    display: inline-block;
+                }
+
+                &.selected {
+                  background-color: rgba(0, 0, 0, 0.075);
+
+                  &:hover {
+                    background-color: rgba(0, 0, 0, 0.2);
+                  }
+                }
+            }
+        }
+    }
+
+    > div:last-child {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
+
+        -webkit-box-flex: 50px;
+
+            -ms-flex: 50px 0 0px;
+
+                flex: 50px 0 0;
+
+        .badge {
+            font-size: calc(#{$font-size} - 2px);
+            color: white;
+        }
+    }
+
+    .loading {
+        position: absolute;
+        color: #888;
+        width: calc(100% - 30px);
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}

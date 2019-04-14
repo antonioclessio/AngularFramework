@@ -1,0 +1,12 @@
+<div class="row" data-type="content-switch">
+  <div class="col-md-2">
+      <ul class="nav nav-pills flex-column" data-type="nav">
+        <li *ngFor="let dataItem of dataSource" class="nav-item" [id]="dataItem.clientId" (click)="switchItem(dataItem)">
+          <a class="nav-link" [ngClass]="{'active': dataItem.active }" href="#">{{ dataItem.label }}</a>
+        </li>
+      </ul>
+  </div>
+  <div class="col-md-10 content">
+    <ng-content></ng-content>
+  </div>
+</div>

@@ -1,0 +1,5 @@
+<div class="no-tabs" *ngIf="canShowEmptyComponent()"></div>
+<div data-type="tabStrip" *ngIf="!canShowEmptyComponent()">
+    <ul class="nav nav-tabs" id="mainTab" role="tablist"></ul>
+    <div class="tab-content"></div>
+</div>

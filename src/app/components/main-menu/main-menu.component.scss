@@ -1,0 +1,116 @@
+/* CONFIGURAÇÕES GERAIS */
+.menu ul {
+    padding: 0;
+    margin: 0;
+}
+
+.menu ul li:hover {
+    background-color: #f6f6f6;
+}
+
+.menu ul.open li:hover > ul {
+    display: block;
+}
+
+.menu li {
+    white-space: nowrap;
+}
+
+/* BARRA DE MENUS PRINCIPAL */
+.menu {
+    background: #fff;
+    width: 100%;
+    padding-top: 3px;
+}
+
+.menu > ul {
+    padding-left: 15px;
+    padding-right: 15px;
+    height: 30px;
+    // box-shadow: 0px 3px 5px #ddd;
+    border-bottom: 1px solid #ddd;
+}
+
+.menu > ul > li {
+    padding-top: 5px;
+    padding-right: 10px;
+    padding-left: 10px;
+    display: inline-block;
+    float: left;
+    border: 1px solid transparent;
+
+    height: 30px;
+    cursor: pointer;
+
+    position: relative;
+    z-index: 100;
+}
+
+.menu > ul > li:hover {
+    border-color: #ddd;
+    background-color: #fff !important;
+}
+
+.menu > ul.open > li:hover {
+    border-bottom-color: #fff !important;
+    box-shadow: 2px 3px 5px #ddd;
+}
+
+/* PRIMEIRO E SEGUNDO NÍVEL DO MENU */
+
+.menu ul ul,
+.menu ul ul ul {
+    background-color: #fff;
+    display: none;
+    border: 1px solid #ddd;
+    width: inherit;
+
+    position: absolute;
+    border-top: none;
+    top: 29px;
+    left: -1px;
+    box-shadow: 2px 3px 5px #ddd;
+}
+
+.menu ul ul li,
+.menu ul ul ul li {
+    list-style-type: none;
+    position: relative;
+}
+
+/* Posicionando o subMenu*/
+.menu ul ul ul {
+    margin-left: calc(100% + 1px);
+    position: absolute;
+    top: 0;
+    border-top: 1px solid #ddd;
+}
+
+/* CONFIGURANDO O VISUAL DOS ITENS DOS MENUS */
+
+.menu ul ul li div {
+    display: block;
+}
+
+.menu ul ul li div span {
+    width: calc(100% - 60px);
+    display: inline-block;
+    white-space: none;
+    overflow: visible;
+    margin-left: 8px;
+}
+
+.menu ul ul li div i {
+    width: 28px;
+    padding: 7px;
+    background-color: #f6f6f6;
+}
+
+.menu ul ul li div i:last-child {
+    text-align: right;
+    background-color: transparent;
+}
+
+.menu .divider {
+    border-bottom: 1px solid #f0f0f0;
+}

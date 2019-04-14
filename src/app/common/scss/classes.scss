@@ -1,0 +1,19 @@
+// Configuração da logo.
+div.logo > img,
+img.logo {
+    max-width: 2rem;
+    margin-right: .5rem;
+}
+
+.dropdown-item,
+.modal {
+    font-size: $font-size;
+}
+
+div.dropdown-item {
+    cursor: pointer;
+
+    span {
+        margin-left: 10px;
+    }
+}

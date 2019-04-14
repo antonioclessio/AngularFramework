@@ -1,0 +1,20 @@
+<div class="row" data-type="tool">
+  <div class="col-md-3">
+    <h6>{{ title }}</h6>
+  </div>
+  <div class="col-md-3" data-type="quick-search"></div>
+  <div class="col-md-6">
+    <button-bar class="pull-right" [data]="buttonBarGroup" (buttonClick)="onButtonBar_Click($event)"></button-bar>
+  </div>
+</div>
+<div class="row" data-type="content">
+  <div class="col-md-9" data-type="dataList"></div>
+  <div class="col-md-3" data-type="detailView">
+    <div *ngIf="selectedKey === null">
+      <div class="jumbotron text-center">
+        Selecione um registro ao lado
+      </div>
+    </div>
+    <div *ngIf="selectedKey !== null" data-type="detail"></div>
+  </div>
+</div>

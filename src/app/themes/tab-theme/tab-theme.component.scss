@@ -1,0 +1,36 @@
+@import "../../common/scss/imports";
+
+main {
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - #{$header-height});
+    font-size: $font-size;
+
+    .container-fluid > .row {
+        height: 100%;
+
+        .col-md-12 {
+            padding-top: 5px;
+            padding-bottom: 0px;
+            padding-left: 5px;
+            padding-right: 5px;
+        }
+    }
+}
+.navbar{
+  height: 40px;
+  padding: 5px;
+
+  .col-md-1 {
+    padding-right: 0;
+  }
+
+  .navbar-brand {
+    font-size: 1.15rem;
+  }
+
+  div[data-type="header-context"] {
+    display: block;
+    margin-right: 45px;
+  }
+}

@@ -1,0 +1,62 @@
+<div data-type="data-grid">
+  <div class="row">
+    <div class="col-md-12">
+
+      <table class="table table-sm table-hover">
+        <thead>
+          <tr>
+            <th *ngFor="let column of configuration.columns" [ngStyle]="{ 'width': column.width }" [title]="column.params.sortable ? sortableDescription + column.label : ''"
+              [attr.data-sortable]="column.params.sortable" (click)="getDataSource(column)" data-toggle="tooltip" attr.data-original-title="column.params.sortable ? sortableDescription + column.label : ''">
+              <i *ngIf="column.params.sortable" [attr.data-field]="column.field" class="fa fa-sort" aria-hidden="true"></i>
+              <span>{{ column.label }}</span>
+            </th>
+            <th [ngStyle]="{ 'width': actionsDefaultSize + '%'}" *ngIf="configuration.hasActions === true">&nbsp;</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let dataItem of getDataSource()" (dblclick)="onRow_DoubleClick($event, dataItem)" (click)="onRowSelect_Click($event, dataItem)">
+            <td *ngFor="let column of configuration.columns" [ngStyle]="{ 'width': column.width }">
+              <span>{{ getDataItemValue(column.field, dataItem) }}</span>
+            </td>
+            <td [ngStyle]="{ 'width': actionsDefaultSize + '%'}" *ngIf="configuration.hasActions === true">
+              <cl-button [data]="configuration.actions" (buttonClick)="onActionButton_Click($event, dataItem)"></cl-button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <div style="float: left" *ngIf="configuration.hasPagination">
+        <nav aria-label="Paginação">
+          <ul class="pagination">
+            <li class="page-item">
+              <a class="page-link" href="#" aria-label="Anterior">
+                <span aria-hidden="true">&laquo;</span>
+                <span class="sr-only">Anterior</span>
+              </a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item">
+              <a class="page-link" href="#" aria-label="Próximo">
+                <span aria-hidden="true">&raquo;</span>
+                <span class="sr-only">Próximo</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="pull-right">
+        <span class="badge badge-primary">
+          Total de {{ dataSource ? dataSource?.length : 0 }} registro(s)
+        </span>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,52 @@
+<nav class="menu">
+  <ul>
+      <li *ngFor="let dataItem of dataSource" (click)="toggleMenu()">
+          <span>{{ dataItem.Label }}</span>
+
+          <ul *ngIf="dataItem.Itens">
+                <li *ngFor="let subMenuItem of dataItem.Itens" (click)="menuItem_Clicked(subMenuItem)">
+                    
+                    <div [ngClass]="{'divider': subMenuItem.TemDivisor}">
+                        <i class="fa {{ subMenuItem.Icon }}" aria-hidden="true">&nbsp;</i>
+                        <span>{{ subMenuItem.Label }}</span>
+                        <i class="fa {{ subMenuItem.Itens && subMenuItem.Itens.length > 0 ? 'fa-caret-right' : ''}}" aria-hidden="true">&nbsp;</i>
+                    </div>
+
+                    <!-- <ul *ngIf="subMenuItem.Itens && subMenuItem.Itens.length > 0">
+                        <li *ngFor="let subSubMenuItem of subMenuItem.Itens" (click)="menuItem_Clicked(subSubMenuItem)">
+                            <div>
+                                <i class="fa {{ subSubMenuItem.Icon }}" aria-hidden="true">&nbsp;</i>
+                                <span>{{ subSubMenuItem.Label }}</span>
+                                <i>&nbsp;</i>
+                            </div>
+                        </li>
+                    </ul> -->
+
+                    <ul *ngIf="dataItem.Itens">
+                        <li *ngFor="let subSubMenuItem of subMenuItem.Itens" (click)="menuItem_Clicked(subSubMenuItem)">
+                            
+                            <div [ngClass]="{'divider': subSubMenuItem.TemDivisor}">
+                                <i class="fa {{ subSubMenuItem.Icon }}" aria-hidden="true">&nbsp;</i>
+                                <span>{{ subSubMenuItem.Label }}</span>
+                                <i class="fa {{ subSubMenuItem.Itens && subSubMenuItem.Itens.length > 0 ? 'fa-caret-right' : ''}}" aria-hidden="true">&nbsp;</i>
+                            </div>
+        
+                            <ul *ngIf="subMenuItem.Itens && subMenuItem.Itens.length > 0">
+                                <li *ngFor="let ultimoNivelMenu of subSubMenuItem.Itens" (click)="menuItem_Clicked(ultimoNivelMenu)">
+                                    <div>
+                                        <i class="fa {{ ultimoNivelMenu.Icon }}" aria-hidden="true">&nbsp;</i>
+                                        <span>{{ ultimoNivelMenu.Label }}</span>
+                                        <i>&nbsp;</i>
+                                    </div>
+                                </li>
+                            </ul>
+        
+                        </li>
+                  </ul>
+
+                </li>
+          </ul>
+
+      </li>
+  </ul>
+</nav>

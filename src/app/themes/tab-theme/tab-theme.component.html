@@ -1,0 +1,35 @@
+<ngx-spinner
+  bdColor="rgba(255,255,255,0.1)"
+  size="medium"
+  color="#888888"
+  loadingText="Aguarde..."
+  type="ball-scale-multiple">
+</ngx-spinner>
+
+<nav class="navbar navbar-dark bg-primary">
+  <div class="col-md-3">
+    <a class="navbar-brand" href="#">
+      <img class="logo" [src]="logo" *ngIf="logo !== null" /> {{ title }}
+    </a>
+  </div>
+  <div class="col-md-9">
+    <user-dropdown [userItens]="userDropdownItens" [tagDefault]="TAG_LOGOUT" (actionButtonClick)="onActionUserButtonClick($event)" class="pull-right"></user-dropdown>
+    <div data-type="header-context"></div>
+  </div>
+</nav>
+<main>
+  <main-menu [data]="dataSourceMainMenu" (menuSelected)="onMenuSelected($event)"></main-menu>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <tabstrip
+          [logo]="logo"
+          [newItem]="tabItem"
+          [emptyComponent]="emptyComponentName"
+          [showEmptyComponent]="showEmptyComponent"
+          (dataSourceUpdated)="onTabStripDataSourceUpdate($event)">
+        </tabstrip>
+      </div>
+    </div>
+  </div>
+</main>

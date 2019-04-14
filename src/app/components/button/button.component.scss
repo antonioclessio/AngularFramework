@@ -1,0 +1,19 @@
+@import "../../common/scss/variables";
+
+a, button {
+    span {
+        margin-left: 5px;
+    }
+}
+
+.btn-light {
+    border: 1px solid $btnLightBorderColor;
+}
+
+.btn-grid {
+    padding: 0.04rem 0.50rem;
+}
+
+.btn-grid.dropdown-toggle::after {
+    display: none;
+}
